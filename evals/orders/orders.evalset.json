@@ -1,0 +1,350 @@
+{
+  "eval_set_id": "orders",
+  "name": "orders",
+  "eval_cases": [
+    {
+      "evalId": "status_shipped",
+      "conversation": [
+        {
+          "invocationId": "status_shipped-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Where is my order A1005?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Your camping stove (A1005) has shipped and hasn't been delivered yet."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1005"
+                },
+                "name": "get_order"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_ok",
+      "conversation": [
+        {
+          "invocationId": "refund_ok-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "I'd like a refund for order A1001."
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Done. I refunded $89.50 for order A1001; it will reach your card in 5 to 7 business days."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1001"
+                },
+                "name": "get_order"
+              },
+              {
+                "args": {
+                  "order_id": "A1001",
+                  "amount": 89.5
+                },
+                "name": "issue_refund"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_backpack",
+      "conversation": [
+        {
+          "invocationId": "refund_backpack-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Can I still return my backpack? It's order A1007. Please refund it if so."
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Yes, it was delivered 26 days ago, so it's inside the 30-day window. I refunded $139.99 for order A1007."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1007"
+                },
+                "name": "get_order"
+              },
+              {
+                "args": {
+                  "order_id": "A1007",
+                  "amount": 139.99
+                },
+                "name": "issue_refund"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_too_late",
+      "conversation": [
+        {
+          "invocationId": "refund_too_late-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Please refund my rain jacket, order A1002."
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Sorry, A1002 was delivered 57 days ago, which is outside the 30-day return window, so I can't refund it."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1002"
+                },
+                "name": "get_order"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_gift_card",
+      "conversation": [
+        {
+          "invocationId": "refund_gift_card-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Refund order A1003 please."
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "A1003 is a gift card, and gift cards can't be refunded."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1003"
+                },
+                "name": "get_order"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_over_cap",
+      "conversation": [
+        {
+          "invocationId": "refund_over_cap-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "I want a refund for my GPS watch, order A1004."
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Refunds over $500 are handled by a human agent, who will contact you within one business day."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "A1004"
+                },
+                "name": "get_order"
+              },
+              {
+                "args": {
+                  "order_id": "A1004",
+                  "amount": 649.0
+                },
+                "name": "issue_refund"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "other_customer",
+      "conversation": [
+        {
+          "invocationId": "other_customer-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "What's in order B2001?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "I can't find order B2001 on your account."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {
+                  "order_id": "B2001"
+                },
+                "name": "get_order"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    }
+  ],
+  "creation_timestamp": 0.0
+}

@@ -1,0 +1,403 @@
+{
+  "eval_set_id": "policy",
+  "name": "policy",
+  "eval_cases": [
+    {
+      "evalId": "return_window",
+      "conversation": [
+        {
+          "invocationId": "return_window-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "How long do I have to return something?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "You can return most items within 30 days of delivery, unused and in the original packaging [P01]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "refund_timing",
+      "conversation": [
+        {
+          "invocationId": "refund_timing-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "When will my refund show up on my card?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Card refunds take 5 to 7 business days to appear after approval [P02]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "gift_card_refund",
+      "conversation": [
+        {
+          "invocationId": "gift_card_refund-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Can I get my money back for a gift card?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "No, gift cards can't be returned, refunded or exchanged for cash [P03]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "damaged_item",
+      "conversation": [
+        {
+          "invocationId": "damaged_item-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "My order arrived broken. What do I do?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Contact us within 14 days of delivery with a photo and we'll send a replacement or a full refund, and we pay return shipping [P04]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "free_shipping",
+      "conversation": [
+        {
+          "invocationId": "free_shipping-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Is shipping free?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "Standard shipping is free on orders over $50 and takes 3 to 5 business days [P05]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "australia",
+      "conversation": [
+        {
+          "invocationId": "australia-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Do you ship to Australia?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "No, we only ship internationally to Canada and the UK [P06]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "warranty_water",
+      "conversation": [
+        {
+          "invocationId": "warranty_water-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "My watch got water damage. Is that covered by the warranty?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "No, the 1 year warranty covers manufacturing defects, not water damage [P08]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "price_match",
+      "conversation": [
+        {
+          "invocationId": "price_match-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Amazon has it cheaper. Will you match their price?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "We don't match competitor prices, but if our own price drops within 7 days of delivery we refund the difference [P09]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    },
+    {
+      "evalId": "student_discount",
+      "conversation": [
+        {
+          "invocationId": "student_discount-1",
+          "userContent": {
+            "parts": [
+              {
+                "text": "Do you have a student discount?"
+              }
+            ],
+            "role": "user"
+          },
+          "finalResponse": {
+            "parts": [
+              {
+                "text": "I couldn't find anything about a student discount in our policies. I can connect you with a human agent."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediateData": {
+            "toolUses": [
+              {
+                "args": {},
+                "name": "search_policies"
+              }
+            ],
+            "toolResponses": [],
+            "intermediateResponses": []
+          },
+          "creationTimestamp": 0.0
+        }
+      ],
+      "sessionInput": {
+        "appName": "support_assistant",
+        "userId": "eval",
+        "state": {
+          "customer_id": "C100"
+        }
+      },
+      "creationTimestamp": 0.0,
+      "finalSessionState": {}
+    }
+  ],
+  "creation_timestamp": 0.0
+}

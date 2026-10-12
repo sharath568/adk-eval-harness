@@ -1,0 +1,6 @@
+# Layer 2 gate: minimum pass rate per suite over all runs, and the most one eval run may spend.
+min_pass_rate:
+  policy: 0.85
+  orders: 0.85
+  refusals: 1.0
+judge_min_pass_rate: 0.85

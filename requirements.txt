@@ -1,0 +1,6 @@
+google-adk[eval]==2.11.0
+google-genai>=2.28,<3
+asyncpg>=0.29
+pyyaml>=6
+pytest>=8
+pytest-asyncio>=0.24

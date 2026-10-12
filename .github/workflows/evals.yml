@@ -1,0 +1,57 @@
+# Layer 2 nightly, layer 3 weekly (or on demand). These call Gemini, so they need Google Cloud
+# credentials: Workload Identity Federation, configured with two repository variables:
+#   GCP_WIF_PROVIDER  projects/<number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>
+#   GCP_SERVICE_ACCOUNT  <name>@<project>.iam.gserviceaccount.com   (roles/aiplatform.user)
+#   GCP_PROJECT_ID
+# Without them the job is skipped, so forks and fresh clones stay green.
+name: evals
+on:
+  schedule:
+    - cron: "17 6 * * *"   # nightly: layer 2
+    - cron: "41 7 * * 1"   # Mondays: layer 2 + layer 3
+  workflow_dispatch:
+    inputs:
+      runs: { description: "runs per case", default: "3" }
+      judge: { description: "run the judge too", type: boolean, default: true }
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  evals:
+    if: vars.GCP_WIF_PROVIDER != ''
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_GENAI_USE_VERTEXAI: "true"
+      GOOGLE_CLOUD_PROJECT: ${{ vars.GCP_PROJECT_ID }}
+      GOOGLE_CLOUD_LOCATION: global
+      EVAL_COST_CAP_USD: "0.50"   # per process; the run stops and fails if it is reached
+    services:
+      db:
+        image: pgvector/pgvector:pg16
+        env: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: support }
+        ports: ["5433:5432"]
+        options: --health-cmd "pg_isready -U postgres" --health-interval 2s --health-retries 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+      - run: pip install -r requirements.txt
+      - uses: actions/cache@v4   # query embeddings: keeps repeat runs off the embedding quota
+        with: { path: runs/embed_cache.json, key: embed-cache-${{ hashFiles('evals/cases.yaml') }}, restore-keys: embed-cache- }
+      - name: Layer 2
+        run: python evals/run_evals.py --runs ${{ inputs.runs || '3' }} --label ci
+      - name: Layer 3
+        if: always() && (github.event.schedule == '41 7 * * 1' || inputs.judge)
+        run: python judge/run_judge.py
+      - name: Summary
+        if: always()
+        run: cat runs/*-ci/summary.md runs/*-ci/judge.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: eval-run, path: "runs/*-ci/" }

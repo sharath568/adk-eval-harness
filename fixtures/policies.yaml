@@ -1,0 +1,52 @@
+# Store policies for Northwind Outfitters (a made-up store). Source text for the fixture.
+# tools/embed_fixture.py embeds these once and writes fixtures/policy_vectors.json.
+- id: P01
+  title: Return window
+  body: >-
+    Most items can be returned within 30 days of delivery for a full refund. Items must be unused
+    and in their original packaging. The 30 days start on the delivery date shown on the order.
+- id: P02
+  title: Refund timing
+  body: >-
+    Approved refunds go back to the original payment method. Card refunds take 5 to 7 business days
+    to appear. Store credit is available immediately.
+- id: P03
+  title: Gift cards
+  body: >-
+    Gift cards cannot be returned, refunded or exchanged for cash. Lost gift cards can be replaced
+    only with the original receipt.
+- id: P04
+  title: Damaged or wrong items
+  body: >-
+    If an item arrives damaged or is not what you ordered, contact us within 14 days of delivery
+    with a photo. We send a replacement or a full refund, and we pay return shipping.
+- id: P05
+  title: Shipping times
+  body: >-
+    Standard shipping takes 3 to 5 business days within the US and is free on orders over $50.
+    Express shipping takes 1 to 2 business days and costs $15.
+- id: P06
+  title: International shipping
+  body: >-
+    We ship to Canada and the UK only. International orders take 7 to 14 business days. Customs fees
+    are paid by the customer and are not refundable.
+- id: P07
+  title: Cancelling an order
+  body: >-
+    Orders can be cancelled free of charge until they ship. Once an order has shipped it cannot be
+    cancelled, but it can be returned under the return policy.
+- id: P08
+  title: Warranty
+  body: >-
+    Electronics carry a 1 year limited warranty from the delivery date that covers manufacturing
+    defects. Accidental damage and water damage are not covered.
+- id: P09
+  title: Price adjustments
+  body: >-
+    We do not match competitor prices. If our own price drops within 7 days of delivery, we refund
+    the difference once per order on request.
+- id: P10
+  title: Large refunds
+  body: >-
+    Refunds over $500 are handled by a human support agent, who will contact the customer within
+    one business day.
