@@ -43,7 +43,10 @@ jobs:
           service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
       - run: pip install -r requirements.txt
       - uses: actions/cache@v4   # query embeddings: keeps repeat runs off the embedding quota
-        with: { path: runs/embed_cache.json, key: embed-cache-${{ hashFiles('evals/cases.yaml') }}, restore-keys: embed-cache- }
+        with:
+          path: runs/embed_cache.json
+          key: embed-cache-${{ hashFiles('evals/cases.yaml') }}
+          restore-keys: embed-cache-
       - name: Layer 2
         run: python evals/run_evals.py --runs ${{ inputs.runs || '3' }} --label ci
       - name: Layer 3
